@@ -78,6 +78,13 @@ margin-top: 0;
   border-radius: 12px;
 }
 
+#inputMsgDiv{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 #linkInput{
   width: calc(100% - 60px);
   margin-top: 20px;
@@ -150,6 +157,13 @@ margin-top: 0;
   margin: 0;
 }
 
+#resultRightDiv{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
 #resultButton{
   width: calc(100% - 30px);
   font-family: "Poppins", sans-serif;
@@ -161,6 +175,7 @@ margin-top: 0;
   color: white;
   padding: 5px;
   margin-bottom: 15px;
+  margin-left: 15px;
 }
 
 
@@ -333,4 +348,152 @@ margin-top: 0;
     footer{
       display: flex;
       flex-direction: column;
+    }
+
+
+    @media (min-width: 1040px) {
+      
+      #mainDiv{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      header{
+        width: 75%;
+      }
+
+      .presentationArticle{
+        width: 75%;
+        flex-direction: row;
+      }
+
+      .presTexts{order: 1;
+      align-items: flex-start;}
+
+      h1{
+        text-align: left;
+        font-size: 52px;
+      }
+
+      #presText{
+        text-align: left;
+        text-align-last: left;
+        padding: 0;
+        padding-right: 80px;
+      }
+
+      #presButton{
+        align-self: flex-start;
+        margin-top: 20px;
+      }
+
+      #illuWorking{
+        padding-left: 80px;
+      }
+
+      .executionDiv{
+        width: 100%;
+        margin-top: 100px;
+      }
+
+      #inputSection{
+        width: 75%;
+        flex-direction: row;
+        justify-content: space-between;
+        position: relative;
+        top: -40px;
+      }
+
+      #inputMsgDiv{
+        width: 75%;
+        margin-left: 30px;
+      }
+
+  
+
+      #linkButton{
+        width: 15%;
+        margin: 0;
+        margin-right: 50px;
+        height: 43px;
+        padding-bottom: 30px;
+        text-align: center;
+        border-radius: 8px;
+      }
+
+      #linkInput{
+       border-radius: 8px;
+      }
+
+
+      #resultSection{
+        width: 75%;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 18px;
+      }
+
+      #resultRightDiv{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+
+      #resultShortUrl{
+        padding: 20px;
+        padding-right: 20px;
+        text-align: right;
+        font-size: 18px;
+      }
+
+      #resultButton{
+        margin: 0;
+        margin-right: 15px;
+        width: 20%;
+      }
+
+      #explanationArticle{
+        width: 100%;
+        padding-top: 40px;
+      }
+
+      #explanationTitleSection{
+        display: flex;
+        align-items: center;
+      }
+
+      #explanationTitleText{
+        width: 40%;
+        margin: 0;
+      }
+
+      #explanationContentSection{
+        flex-direction: row;
+        width: 75%;
+        justify-content: space-between;
+        margin: 0;
+      }
+      #explananationContentDiv1{
+        width: 300px;
+      }
+      #explananationContentDiv2{
+        width: 300px;
+        margin-top: 100px;
+      }
+      #explanationContentDivFinal{
+        width: 300px;
+        margin-top: 300px;
+      }
+
+      .explanationContentImgDiv{
+        align-self: flex-start;
+        margin-left: 30px;
+      }
+
+      .verticalLine {
+        border: none;        border-bottom: 6px solid #2BD0D0;
+       width: 100px;
+      }
+
     }

@@ -1,5 +1,6 @@
 import "./App.css";
 import NavMobile from "./Component/NavMobile";
+import NavDesktop from "./Component/NavDesktop";
 import IlluWorking from "./assets/illustration-working.svg";
 import BrandrecoImg from "./assets/icon-brand-recognition.svg";
 import DetailedRecordsImg from "./assets/icon-detailed-records.svg";
@@ -12,9 +13,10 @@ import Instagram from "./assets/icon-instagram.svg"
 function App() {
   return (
     <>
-      <div>
+      <div id="mainDiv">
         <header>
-          <NavMobile />
+          <NavDesktop/>
+          {/* <NavMobile /> */}
         </header>
         <article className="presentationArticle">
           <section className="presTexts">
@@ -31,21 +33,21 @@ function App() {
         </article>
         <div className="executionDiv">
           <section id="inputSection">
-            <input
+           <div id="inputMsgDiv"> <input
               type="text"
               name="link"
               id="linkInput"
               placeholder="Shorten a link here..."
             />
-            <p id="linkParagraph">Please add a link</p>
+            <p id="linkParagraph">Please add a link</p></div>
             <button id="linkButton">Shorten it!</button>
           </section>
           <section id="resultSection">
             <div id="resultFullDiv">
               <p id="resultFullUrl">frontendmentor.celjkfe</p>
             </div>
-            <p id="resultShortUrl">httpseferf</p>
-            <button id="resultButton">Copy</button>
+          <div id="resultRightDiv">  <p id="resultShortUrl">httpseferf</p>
+            <button id="resultButton">Copy</button></div>
           </section>
         </div>
         <article id="explanationArticle">
@@ -57,7 +59,7 @@ function App() {
             </p>
           </section>
           <section id="explanationContentSection">
-            <div className="explanationContentDivs">
+            <div className="explanationContentDivs" id="explananationContentDiv1">
               <div className="explanationContentImgDiv">
                 {" "}
                 <img
@@ -74,7 +76,7 @@ function App() {
               </p>
             </div>
             <div className="verticalLine"></div>
-            <div className="explanationContentDivs">
+            <div className="explanationContentDivs" id="explananationContentDiv2">
               <div className="explanationContentImgDiv">
                 {" "}
                 <img src={DetailedRecordsImg} alt="Detailed records"         className="explanationContentImg"/>
@@ -86,7 +88,7 @@ function App() {
               </p>
             </div>
             <div className="verticalLine"></div>
-            <div id="explanationContentDivFinal">
+            <div id="explanationContentDivFinal" >
               <div className="explanationContentImgDiv">
                 {" "}
                 <img src={FullyCustomImg} alt="Fully custom"         className="explanationContentImg" />
