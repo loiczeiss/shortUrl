@@ -5,17 +5,18 @@ import IlluWorking from "./assets/illustration-working.svg";
 import BrandrecoImg from "./assets/icon-brand-recognition.svg";
 import DetailedRecordsImg from "./assets/icon-detailed-records.svg";
 import FullyCustomImg from "./assets/icon-fully-customizable.svg";
-import ShorthlyLogo from "./assets/logo.svg"
-import Facebook from "./assets/icon-facebook.svg"
-import Twitter from "./assets/icon-twitter.svg"
-import Pinterest from "./assets/icon-pinterest.svg"
-import Instagram from "./assets/icon-instagram.svg"
+import ShorthlyLogo from "./assets/logo.svg";
+import Facebook from "./assets/icon-facebook.svg";
+import Twitter from "./assets/icon-twitter.svg";
+import Pinterest from "./assets/icon-pinterest.svg";
+import Instagram from "./assets/icon-instagram.svg";
+import Execution from "./Component/Execution";
 function App() {
   return (
     <>
       <div id="mainDiv">
         <header>
-          <NavDesktop/>
+          <NavDesktop />
           {/* <NavMobile /> */}
         </header>
         <article className="presentationArticle">
@@ -31,25 +32,7 @@ function App() {
             <img src={IlluWorking} alt="illuWorking" id="illuWorking" />
           </section>
         </article>
-        <div className="executionDiv">
-          <section id="inputSection">
-           <div id="inputMsgDiv"> <input
-              type="text"
-              name="link"
-              id="linkInput"
-              placeholder="Shorten a link here..."
-            />
-            <p id="linkParagraph">Please add a link</p></div>
-            <button id="linkButton">Shorten it!</button>
-          </section>
-          <section id="resultSection">
-            <div id="resultFullDiv">
-              <p id="resultFullUrl">frontendmentor.celjkfe</p>
-            </div>
-          <div id="resultRightDiv">  <p id="resultShortUrl">httpseferf</p>
-            <button id="resultButton">Copy</button></div>
-          </section>
-        </div>
+    <Execution/>
         <article id="explanationArticle">
           <section id="explanationTitleSection">
             <h2>Advanced Statistics</h2>
@@ -59,7 +42,10 @@ function App() {
             </p>
           </section>
           <section id="explanationContentSection">
-            <div className="explanationContentDivs" id="explananationContentDiv1">
+            <div
+              className="explanationContentDivs"
+              id="explananationContentDiv1"
+            >
               <div className="explanationContentImgDiv">
                 {" "}
                 <img
@@ -76,10 +62,17 @@ function App() {
               </p>
             </div>
             <div className="verticalLine"></div>
-            <div className="explanationContentDivs" id="explananationContentDiv2">
+            <div
+              className="explanationContentDivs"
+              id="explananationContentDiv2"
+            >
               <div className="explanationContentImgDiv">
                 {" "}
-                <img src={DetailedRecordsImg} alt="Detailed records"         className="explanationContentImg"/>
+                <img
+                  src={DetailedRecordsImg}
+                  alt="Detailed records"
+                  className="explanationContentImg"
+                />
               </div>
               <h4>Detailed records</h4>{" "}
               <p className="explanationContentText">
@@ -88,10 +81,14 @@ function App() {
               </p>
             </div>
             <div className="verticalLine"></div>
-            <div id="explanationContentDivFinal" >
+            <div id="explanationContentDivFinal">
               <div className="explanationContentImgDiv">
                 {" "}
-                <img src={FullyCustomImg} alt="Fully custom"         className="explanationContentImg" />
+                <img
+                  src={FullyCustomImg}
+                  alt="Fully custom"
+                  className="explanationContentImg"
+                />
               </div>
               <h4>Fully Customizable</h4>
               <p className="explanationContentText">
@@ -102,35 +99,38 @@ function App() {
           </section>
         </article>
         <article id="sloganArticle">
-        
-            <h2 id="sloganH2">Boost your links today</h2>
-            <button id="sloganButton">Get Started</button>
-         
+          <h2 id="sloganH2">Boost your links today</h2>
+          <button id="sloganButton">Get Started</button>
         </article>
         <footer id="footerDiv">
           <section id="footerLogoDiv">
-       <img src={ShorthlyLogo} alt="ShortlyLogo" id="ShortlyLogo" style={{ filter: 'brightness(0) invert(1)' }}/>
+            <img
+              src={ShorthlyLogo}
+              alt="ShortlyLogo"
+              id="ShortlyLogo"
+              style={{ filter: "brightness(0) invert(1)" }}
+            />
           </section>
           <section id="footerLinksSection">
             <div className="footerLinksDiv">
               <p className="footerText">Features</p>
-              <ul id="footerLinksUl">
+              <ul className="footerLinksUl">
                 <li>Link Shortening</li>
                 <li>Branded Links</li>
                 <li>Analytics</li>
               </ul>
             </div>
-            <div>
+            <div className="footerLinksDiv">
               <p className="footerText">Resources</p>
-              <ul>
+              <ul className="footerLinksUl">
                 <li>Blog</li>
                 <li>Developers</li>
                 <li>Support</li>
               </ul>
             </div>
-            <div>
+            <div className="footerLinksDiv">
               <p className="footerText">Company</p>
-              <ul>
+              <ul className="footerLinksUl">
                 <li>About</li>
                 <li>Our Team</li>
                 <li>Careers</li>
@@ -139,10 +139,26 @@ function App() {
             </div>
           </section>
           <section id="footerSectionSocials">
-            <img src={Facebook} alt="facebook" className="footerSectionSocialsImg"/>
-            <img src={Twitter} alt="Twitter" />
-            <img src={Pinterest} alt="Pinterest" />
-            <img src={Instagram} alt="Instagram" />
+            <img
+              src={Facebook}
+              alt="facebook"
+              className="footerSectionSocialsImg"
+            />
+            <img
+              src={Twitter}
+              alt="Twitter"
+              className="footerSectionSocialsImg"
+            />
+            <img
+              src={Pinterest}
+              alt="Pinterest"
+              className="footerSectionSocialsImg"
+            />
+            <img
+              src={Instagram}
+              alt="Instagram"
+              className="footerSectionSocialsImg"
+            />
           </section>
         </footer>
       </div>
