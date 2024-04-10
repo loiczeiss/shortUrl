@@ -137,6 +137,7 @@ margin-top: 0;
   border-bottom: 1px solid hsl(257, 7%, 63%);
 }
 #resultFullUrl{
+  width: 100%;
   color: hsl(255, 11%, 22%);
   align-self: flex-start;
   padding-left: 15px;

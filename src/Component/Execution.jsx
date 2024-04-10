@@ -1,32 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "../App.css";
 import axios from "axios";
+import TextToBeCopied from "./TextToBeCopied";
 
 function Execution() {
   const [inputvalue, setInputValue] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
   const [data, setData] = useState();
-  // const [url, seturl] = useState("https://google.com");
 
-  // async function callingAPI() {
-  //   const backendUrl = 'http://localhost:3001'
-
-  //   try {
-  //     const response = await fetch(backendUrl, {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //       body: JSON.stringify({ url: url }),
-  //     })
-  //     const responseData = await response.json(); // Renamed variable to avoid shadowing
-  //     setData(responseData); // Update the state with the fetched data
-  //     console.log(responseData.result_url);
-  
-  //   } catch (error) {
-  //     console.error('Failed to call backend: ', error)
-  //   }
-  // }
 
 
   const handleInputChange = (event) => {
@@ -37,14 +18,7 @@ function Execution() {
     console.log(errorMsg);
   }, [inputvalue, errorMsg]);
 
-  // const inputValidation = () => {
-  //   if (!inputvalue) {
-  //     setErrorMsg("Please enter a value.");
-  //   } else {
-  //     setErrorMsg("");
-  //   }
-  // };
-
+ 
 
   async function handleFormSubmission() {
     if (!inputvalue) {
@@ -64,6 +38,7 @@ function Execution() {
       const responseData = await response.json();
       setData(responseData);
       console.log(responseData.result_url);
+      console.log(inputvalue)
       setErrorMsg(""); // Clear error message on successful API call
     } catch (error) {
       console.error('Failed to call backend: ', error);
@@ -90,12 +65,12 @@ function Execution() {
           Shorten it!
         </button>
       </section>
+
   { data  &&  <section id="resultSection">
       <div id="resultFullDiv">
         <p id="resultFullUrl">{inputvalue}</p>
       </div>
-    <div id="resultRightDiv">  <p id="resultShortUrl">{data.result_url}</p>
-      <button id="resultButton">Copy</button></div>
+  <TextToBeCopied data={data}/>
     </section>}
     {/* <section id="resultSection">
       <div id="resultFullDiv">
