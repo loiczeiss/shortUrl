@@ -121,7 +121,7 @@ margin-top: 0;
 
 
 #resultSection{
-  background-color: white;
+  background-color: #f0f1f6;
   width: 90%;
   border-radius: 12px;
   display: flex;
@@ -134,16 +134,18 @@ margin-top: 0;
 
 #resultFullDiv{
   width: 100%;
-  border-bottom: 1px solid hsl(257, 7%, 63%);
+ 
+  margin-bottom: 20px;
+  background-color: white;
 }
 #resultFullUrl{
-  width: 100%;
+  width: calc(100%-15px);
   color: hsl(255, 11%, 22%);
   align-self: flex-start;
   padding-left: 15px;
   padding-bottom: 15px;
   padding-top: 15px;
-
+  border-bottom: 1px solid hsl(257, 7%, 63%);
  
   margin: 0;
 }
@@ -437,13 +439,24 @@ margin-top: 0;
       }
       #resultFullDiv{
         border: none;
+        display: flex;
+        margin-bottom: 20px;
+        background-color: white;
+        border-radius: 12px;
       }
 
       #resultSection{
         width: 75%;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: space-between;
         font-size: 18px;
+        background-color: #f0f1f6;
+      }
+
+      #resultFullUrl{
+        width: 40%;
+        border: none;
+        align-self: center;
       }
 
       #resultRightDiv{
@@ -457,6 +470,7 @@ margin-top: 0;
         padding-right: 20px;
         text-align: right;
         font-size: 18px;
+        align-self: center;
       }
 
       #resultButton{

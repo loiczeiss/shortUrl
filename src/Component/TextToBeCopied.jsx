@@ -1,15 +1,15 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 
-function TextToBeCopied({data}) {
+function TextToBeCopied({link}) {
     const [isCopied, setIsCopied] = useState(false);
     const [copyText, setCopyText] = useState("")
 
     useEffect(() => {
-        if (data && data.result_url) {
-          setCopyText(data.result_url);
+        if (link.shortLink) {
+          setCopyText(link.shortLink);
         }
-      }, [data]);
+      }, []);
     // This is the function we wrote earlier
     async function copyTextToClipboard(text) {
       
@@ -39,8 +39,11 @@ function TextToBeCopied({data}) {
     }
   
   return (
-    <div id="resultRightDiv" >  <a href={data.result_url}  id="resultShortUrl">{data.result_url}</a>
-    <button id="resultButton" onClick={handleCopyClick}> <span>{isCopied ? 'Copied!' : 'Copy'}</span></button></div>
+    <div id="resultFullDiv">
+    <p id="resultFullUrl">{link.userLink}</p>
+ 
+    <div id="resultRightDiv" >  <a href={link.shortLink}  id="resultShortUrl">{link.shortLink}</a>
+    <button id="resultButton" onClick={handleCopyClick}> <span>{isCopied ? 'Copied!' : 'Copy'}</span></button></div> </div>
   )
 }
 

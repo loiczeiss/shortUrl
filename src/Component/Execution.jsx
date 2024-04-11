@@ -1,78 +1,101 @@
 import React, { useEffect, useState } from "react";
 import "../App.css";
-import axios from "axios";
+
 import TextToBeCopied from "./TextToBeCopied";
 
 function Execution() {
-  const [inputvalue, setInputValue] = useState("");
+  const [link, setLink] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
-  const [data, setData] = useState();
 
-
+  const [links, setLinks] = useState([]);
 
   const handleInputChange = (event) => {
-    setInputValue(event.target.value);
+    setLink(event.target.value);
   };
+
   useEffect(() => {
-    console.log(inputvalue);
-    console.log(errorMsg);
-  }, [inputvalue, errorMsg]);
-
- 
-
-  async function handleFormSubmission() {
-    if (!inputvalue) {
-      setErrorMsg("Please enter a value.");
-      return; // Exit the function if input value is empty
+    const storageData = sessionStorage.getItem("data");
+    if (storageData) {
+      try {
+        setLinks(JSON.parse(storageData));
+      } catch (error) {
+        console.error("Error parsing storage data: ", error);
+        sessionStorage.removeItem("data");
+      }
     }
-  
+  }, []);
+
+  async function handleFormSubmission(event) {
+    event.preventDefault(); // Prevent default form submission behavior
+ // Regular expression pattern for URL validation
+ const urlPattern = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
+
+ if (!link) {
+   setErrorMsg("Please enter a value.");
+   return; // Exit the function if input value is empty
+ }
+
+ if (!urlPattern.test(link)) {
+   setErrorMsg("Please enter a valid URL.");
+   return; // Exit the function if input value is not a valid URL
+ }
+
+
     try {
-      const backendUrl = 'http://localhost:3001';
+      const backendUrl = "https://short-url-api-theta.vercel.app/";
       const response = await fetch(backendUrl, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({ url: inputvalue }),
+        body: JSON.stringify({ url: link }),
       });
-      const responseData = await response.json();
-      setData(responseData);
-      console.log(responseData.result_url);
-      console.log(inputvalue)
+      const data = await response.json();
+      
+      const updatedLinks = [
+        ...links,
+        {
+          userLink: link,
+          shortLink: data.result_url,
+        },
+      ];
+      setLinks(updatedLinks);
+      sessionStorage.setItem("data", JSON.stringify(updatedLinks));
+      setLink("");
       setErrorMsg(""); // Clear error message on successful API call
     } catch (error) {
-      console.error('Failed to call backend: ', error);
+      console.error("Failed to call backend: ", error);
       setErrorMsg("Failed to call backend.");
     }
   }
-  
+
   return (
     <div className="executionDiv">
-      <section id="inputSection">
+      <form onSubmit={handleFormSubmission} id="inputSection">
+        {" "}
         <div id="inputMsgDiv">
           {" "}
           <input
             type="text"
             name="link"
             id="linkInput"
-            value={inputvalue}
+            value={link}
             onChange={handleInputChange}
             placeholder="Shorten a link here..."
           />
           <p id="linkParagraph">{errorMsg}</p>
         </div>
-        <button id="linkButton" onClick={handleFormSubmission}>
-          Shorten it!
-        </button>
-      </section>
+        <button id="linkButton">Shorten it!</button>
+      </form>
 
-  { data  &&  <section id="resultSection">
-      <div id="resultFullDiv">
-        <p id="resultFullUrl">{inputvalue}</p>
-      </div>
-  <TextToBeCopied data={data}/>
-    </section>}
-    {/* <section id="resultSection">
+     
+        <section id="resultSection">
+          {links.map((link, index) => (
+            <TextToBeCopied key={index} link={link}  />
+          ))}
+        </section>
+
+      {/* <section id="resultSection">
       <div id="resultFullDiv">
         <p id="resultFullUrl">frontendmentor.celjkfe</p>
       </div>
